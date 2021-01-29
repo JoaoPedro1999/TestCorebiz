@@ -1,7 +1,43 @@
-import React from 'react';
+/* eslint-disable object-curly-newline */
+/* eslint-disable import/extensions */
+import React, { useRef } from 'react';
+import Image from 'next/image';
+import { Form } from '@unform/web';
+import { FormHandles } from '@unform/core';
 
-// import { Container } from './styles';
+import { FiMenu, FiSearch, FiShoppingCart, FiUser } from 'react-icons/fi';
+import { Container } from './styles';
+import Input from '../Imput';
 
-const Header: React.FC = () => <div />;
+const Header: React.FC = () => {
+  const formRef = useRef<FormHandles>(null);
 
+  return (
+    <Container>
+      <div>
+        <FiMenu size={24} />
+
+        <Image
+          width="102"
+          height="25"
+          src="/site-logo-corebiz-preto-cinza.svg"
+        />
+
+        <FiUser size={24} />
+
+        <FiShoppingCart size={24} />
+      </div>
+
+      <div>
+        <Form ref={formRef} onSubmit={() => {}}>
+          <Input
+            name="search"
+            icon={FiSearch}
+            placeholder="O que está procurando?"
+          />
+        </Form>
+      </div>
+    </Container>
+  );
+};
 export default Header;

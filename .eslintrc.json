@@ -26,6 +26,11 @@
     "prettier"
   ],
   "rules": {
+    "operator-linebreak": "off",
+    "implicit-arrow-linebreak": "off",
+    "arrow-parens": "off",
+    "import/extensions": "off",
+    "import/prefer-default-export": "off",
     "import/no-unresolved": "off",
     "@typescript-eslint/no-empty-interface": "off",
     "react/jsx-props-no-spreading": "off",
