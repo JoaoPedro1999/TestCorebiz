@@ -1,10 +1,9 @@
 import React from 'react';
 import Head from 'next/head';
-import Image from 'next/image';
 
 import Header from '@/components/Header';
 
-// import { Container } from './styles';
+import { Container } from '@/styles/home/index';
 
 const Home: React.FC = () => (
   <>
@@ -12,6 +11,13 @@ const Home: React.FC = () => (
       <title>Ecommerce | Corebiz</title>
     </Head>
     <Header />
+
+    <Container>
+      <div>
+        <h2>Olá, o que você está buscando?</h2>
+        <h1>Criar ou migrar seu e-commerce?</h1>
+      </div>
+    </Container>
   </>
 );
 
