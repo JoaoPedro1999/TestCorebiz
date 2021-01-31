@@ -7,7 +7,7 @@ import { FormHandles } from '@unform/core';
 
 import { FiMenu, FiSearch, FiShoppingCart, FiUser } from 'react-icons/fi';
 import { Container } from './styles';
-import Input from '../Imput';
+import ImputSearch from '../ImputSearch';
 
 const Header: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
@@ -30,7 +30,7 @@ const Header: React.FC = () => {
 
       <div>
         <Form ref={formRef} onSubmit={() => {}}>
-          <Input
+          <ImputSearch
             name="search"
             icon={FiSearch}
             placeholder="O que está procurando?"
