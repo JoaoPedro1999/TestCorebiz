@@ -1,5 +1,5 @@
 module.exports = {
   images: {
-    domains: ['www.figma.com'],
+    domains: ["corebiz-test.herokuapp.com"],
   },
 };

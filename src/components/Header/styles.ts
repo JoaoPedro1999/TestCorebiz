@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const MobileHeader = styled.header`
   display: flex;
   flex-direction: column;
 
@@ -14,7 +14,7 @@ export const Container = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    svg:nth-child(3) {
+    > button {
       display: none;
     }
   }
@@ -28,29 +28,55 @@ export const Container = styled.div`
     }
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1024px) {
+    display: none;
+  }
+`;
+
+export const DesktopHeader = styled.header`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  height: 8rem;
+  margin: 0 1.6rem;
+
+  form {
+    width: 70rem;
+  }
+
+  div {
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
 
-    margin: 0 1.6rem;
+    margin-left: 0;
 
-    div:first-child {
-      svg:first-child {
-        display: none;
-      }
+    > button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-      svg:nth-child(3) {
-        display: unset;
-        margin: 0 2rem 0 4rem;
+      width: 12rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
+
+      background: transparent;
+      border: none;
+
+      font-size: 1.3rem;
+      font-weight: 400;
+      line-height: 1.8rem;
+      color: ${props => props.theme.colors.input};
+
+      svg {
+        margin-right: 0.8rem;
+        color: ${props => props.theme.colors.secundary};
       }
     }
+  }
 
-    div + div {
-      form {
-        width: 50%;
-      }
-
-      margin-top: 0;
-    }
+  @media (max-width: 1024px) {
+    display: none;
   }
 `;

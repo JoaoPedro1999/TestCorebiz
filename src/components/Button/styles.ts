@@ -23,7 +23,7 @@ export const Container = styled.button`
     background: ${props => shade(0.2, props.theme.colors.secundary)};
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1024px) {
     margin-top: 0rem;
 
     width: 14rem;

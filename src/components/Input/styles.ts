@@ -56,7 +56,7 @@ export const Container = styled.div<ContainerProps>`
     margin-left: 1.6rem;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1024px) {
     margin-right: 0.8rem;
 
     & + div {

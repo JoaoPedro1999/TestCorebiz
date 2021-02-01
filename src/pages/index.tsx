@@ -14,10 +14,13 @@ import Footer from '@/components/Footer';
 import Input from '@/components/Input';
 import {
   Container,
+  Products,
+  ProductCard,
   Newsletter,
   NewsletterSuccessful,
 } from '@/styles/home/index';
 import Button from '@/components/Button';
+import Image from 'next/image';
 
 interface IProduct {
   productId: number;
@@ -98,6 +101,31 @@ const Home: React.FC<HomeProps> = ({ products }) => {
           <h1>Criar ou migrar seu e-commerce?</h1>
         </div>
       </Container>
+
+      <Products>
+        <div>
+          <strong>Mais vendidos</strong>
+        </div>
+        {products.map(product => (
+          <ProductCard key={product.productId}>
+            <img
+              width="216"
+              height="200"
+              alt={product.productName}
+              src={product.imageUrl}
+            />
+            <div>
+              <span>{product.productName}</span>
+              <span>por {product.price}</span>
+              <span>
+                ou {product.installments[0]?.quantity}x de{' '}
+                {product.installments[0]?.value}
+              </span>
+              <button type="button">Comprar</button>
+            </div>
+          </ProductCard>
+        ))}
+      </Products>
 
       {successful === false ? (
         <Newsletter>

@@ -84,7 +84,7 @@ export const Container = styled.footer`
     margin-top: 1.6rem;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1024px) {
     height: 22rem;
 
     display: flex;

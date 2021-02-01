@@ -31,7 +31,7 @@ export const Container = styled.div`
     }
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1024px) {
     background: url('/Mask_Group.svg') no-repeat center;
     height: 43rem;
 
@@ -66,6 +66,65 @@ export const Container = styled.div`
   }
 `;
 
+export const Products = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ProductCard = styled.div`
+  width: 21.6rem;
+  height: 36rem;
+  margin-right: 1.6rem;
+
+  div {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    height: 40%;
+
+    > span {
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.6rem;
+      text-align: center;
+    }
+
+    span + span {
+      font-size: 1.8rem;
+      font-weight: 700;
+      line-height: 2.5rem;
+      text-align: center;
+    }
+
+    span:last-child {
+      font-size: 1.1rem;
+      font-weight: 400;
+      line-height: 1.5rem;
+      text-align: center;
+    }
+
+    button {
+      height: 3.2rem;
+      width: 12rem;
+      margin-top: 0.8rem;
+
+      background: ${props => props.theme.colors.secundary};
+      border: none;
+      border-radius: 0.5rem;
+      color: ${props => props.theme.colors.background};
+
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1.6rem;
+      text-align: center;
+    }
+  }
+`;
+
 export const Newsletter = styled.div`
   background: ${props => props.theme.colors.tertiary};
 
@@ -77,24 +136,23 @@ export const Newsletter = styled.div`
   align-items: center;
   justify-content: center;
 
-  div + span {
+  > span {
     font-family: 'Lato';
     font-size: 2.6rem;
-    font-style: normal;
     font-weight: 700;
     line-height: 2.2rem;
-    letter-spacing: 0em;
     text-align: left;
   }
 
   form {
     margin-top: 1.6rem;
+    width: 100%;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1024px) {
     height: 15rem;
 
-    span {
+    > span {
       font-size: 2.2rem;
       text-align: center;
     }
@@ -140,7 +198,7 @@ export const NewsletterSuccessful = styled.div`
     margin-bottom: 0.8rem;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1024px) {
     height: 15rem;
 
     span {
