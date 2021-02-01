@@ -71,18 +71,23 @@ export const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 0 11rem;
 
   strong {
     font-size: 2rem;
     font-weight: 900;
     line-height: 2.7rem;
     text-align: left;
-    align-self: center;
+    align-self: flex-start;
 
     margin-top: 2rem;
     margin-bottom: 2rem;
 
     border-bottom: 0.5rem solid ${props => props.theme.colors.border};
+  }
+
+  @media (max-width: 1024px) {
+    margin: 1.6rem;
   }
 `;
 
@@ -98,15 +103,19 @@ export const Products = styled.div`
 
 export const ProductCard = styled.div`
   width: 21.6rem;
-  height: 36rem;
-  margin-right: 1.6rem;
+  height: 40rem;
+
+  & + div {
+    margin-left: 10rem;
+  }
 
   div {
     display: flex;
     flex: 1;
     flex-direction: column;
     align-items: center;
-    height: 40%;
+    padding-top: 1.6rem;
+    padding-bottom: 1.6rem;
 
     > span {
       font-size: 1.2rem;
@@ -143,6 +152,16 @@ export const ProductCard = styled.div`
       font-weight: 700;
       line-height: 1.6rem;
       text-align: center;
+    }
+
+    &:hover {
+      background: ${props => props.theme.colors.input};
+    }
+  }
+
+  @media (max-width: 1024px) {
+    & + div {
+      margin-left: 1rem;
     }
   }
 `;

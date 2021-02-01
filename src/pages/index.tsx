@@ -51,9 +51,7 @@ interface NewsletterFormData {
 const Home: React.FC<HomeProps> = ({ products }) => {
   const formRef = useRef<FormHandles>(null);
   const [successful, setSucessful] = useState(false);
-  const { addToCart, cart } = useCart();
-
-  console.log(cart);
+  const { addToCart } = useCart();
 
   const handleSubmit = useCallback(
     async ({ email, name }: NewsletterFormData) => {
@@ -121,6 +119,7 @@ const Home: React.FC<HomeProps> = ({ products }) => {
               />
               <div>
                 <span>{product.productName}</span>
+
                 <span>por {formatValue(product.price)}</span>
                 <span>
                   {product.installments[0]?.quantity
