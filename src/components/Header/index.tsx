@@ -6,11 +6,13 @@ import { Form } from '@unform/web';
 import { FormHandles } from '@unform/core';
 
 import { FiMenu, FiSearch, FiShoppingCart, FiUser } from 'react-icons/fi';
+import { useCart } from '@/hooks/cart';
 import { DesktopHeader, MobileHeader } from './styles';
 import ImputSearch from '../ImputSearch';
 
 const Header: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
+  const { cart } = useCart();
 
   return (
     <>
@@ -29,7 +31,14 @@ const Header: React.FC = () => {
             Minha conta
           </button>
 
-          <FiShoppingCart size={24} />
+          <div>
+            <FiShoppingCart size={24} />
+            {cart && (
+              <div>
+                <span>{cart.length}</span>
+              </div>
+            )}
+          </div>
         </div>
 
         <div>
@@ -63,7 +72,14 @@ const Header: React.FC = () => {
             Minha conta
           </button>
 
-          <FiShoppingCart size={24} />
+          <div>
+            <FiShoppingCart size={24} />
+            {cart && (
+              <div>
+                <span>{cart.length}</span>
+              </div>
+            )}
+          </div>
         </div>
       </DesktopHeader>
     </>

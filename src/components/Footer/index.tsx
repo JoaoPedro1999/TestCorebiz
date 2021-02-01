@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiMail, FiPhone } from 'react-icons/fi';
+import { FiHeadphones, FiMail } from 'react-icons/fi';
 import Image from 'next/image';
 
 import { Container } from './styles';
@@ -20,7 +20,7 @@ const Footer: React.FC = () => (
       </button>
 
       <button type="button">
-        <FiPhone size={18} />
+        <FiHeadphones size={18} />
         <span>Fale com nosso consultor online</span>
       </button>
     </div>

@@ -6,6 +6,7 @@ const theme = {
 
     text: '#111214',
     input: '#7A7A7A',
+    border: '#C0C0C0',
   },
 };
 

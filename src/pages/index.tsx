@@ -8,19 +8,21 @@ import * as Yup from 'yup';
 
 import api from '@/services/api';
 import getValidationsErros from '@/utils/getValidationErrors';
+import { useCart } from '@/hooks/cart';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Input from '@/components/Input';
 import {
   Container,
+  Wrapper,
   Products,
   ProductCard,
   Newsletter,
   NewsletterSuccessful,
 } from '@/styles/home/index';
 import Button from '@/components/Button';
-import Image from 'next/image';
+import formatValue from '@/utils/formatValue';
 
 interface IProduct {
   productId: number;
@@ -49,6 +51,9 @@ interface NewsletterFormData {
 const Home: React.FC<HomeProps> = ({ products }) => {
   const formRef = useRef<FormHandles>(null);
   const [successful, setSucessful] = useState(false);
+  const { addToCart, cart } = useCart();
+
+  console.log(cart);
 
   const handleSubmit = useCallback(
     async ({ email, name }: NewsletterFormData) => {
@@ -102,30 +107,35 @@ const Home: React.FC<HomeProps> = ({ products }) => {
         </div>
       </Container>
 
-      <Products>
-        <div>
-          <strong>Mais vendidos</strong>
-        </div>
-        {products.map(product => (
-          <ProductCard key={product.productId}>
-            <img
-              width="216"
-              height="200"
-              alt={product.productName}
-              src={product.imageUrl}
-            />
-            <div>
-              <span>{product.productName}</span>
-              <span>por {product.price}</span>
-              <span>
-                ou {product.installments[0]?.quantity}x de{' '}
-                {product.installments[0]?.value}
-              </span>
-              <button type="button">Comprar</button>
-            </div>
-          </ProductCard>
-        ))}
-      </Products>
+      <Wrapper>
+        <strong>Mais vendidos</strong>
+
+        <Products>
+          {products.map(product => (
+            <ProductCard key={product.productId}>
+              <img
+                width="216"
+                height="200"
+                alt={product.productName}
+                src={product.imageUrl}
+              />
+              <div>
+                <span>{product.productName}</span>
+                <span>por {formatValue(product.price)}</span>
+                <span>
+                  {product.installments[0]?.quantity
+                    ? `ou ${product.installments[0]?.quantity}x de
+                  ${formatValue(product.installments[0]?.value)}`
+                    : 'Sem parcelamento'}
+                </span>
+                <button type="button" onClick={() => addToCart(product)}>
+                  Comprar
+                </button>
+              </div>
+            </ProductCard>
+          ))}
+        </Products>
+      </Wrapper>
 
       {successful === false ? (
         <Newsletter>

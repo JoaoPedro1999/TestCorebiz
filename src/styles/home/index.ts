@@ -66,12 +66,34 @@ export const Container = styled.div`
   }
 `;
 
+export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  strong {
+    font-size: 2rem;
+    font-weight: 900;
+    line-height: 2.7rem;
+    text-align: left;
+    align-self: center;
+
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+
+    border-bottom: 0.5rem solid ${props => props.theme.colors.border};
+  }
+`;
+
 export const Products = styled.div`
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  overflow-x: auto;
 `;
 
 export const ProductCard = styled.div`

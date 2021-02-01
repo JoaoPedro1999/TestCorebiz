@@ -17,14 +17,14 @@ export default createGlobalStyle`
     color: ${props => props.theme.colors.text};
   }
 
-  body, input, button {
+  body, input, button, span {
     font-family: 'Nunito', sans-serif;
     font-size: 1.6rem;
   }
 
   h1, h2, h3, h4, h4, h6, strong {
     font-weight: 500;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Nunito', sans-serif;
   }
 
   a, button {
